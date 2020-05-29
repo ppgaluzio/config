@@ -440,15 +440,15 @@
 
 (setq
  python-shell-interpreter "ipython3"     ;ipython3 ?
- python-shell-interpreter-args "--simple-prompt -i"
- ;; python-shell-prompt-regexp "In \\[[0-9]+\\]: "
- ;; python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
- ;; python-shell-completion-setup-code
- ;; "from IPython.core.completerlib import module_completion"
- ;; python-shell-completion-module-string-code
- ;; "';'.join(module_completion('''%s'''))\n"
- ;; python-shell-completion-string-code
- ;; "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"
+ python-shell-interpreter-args "--simple-prompt --pprint"
+ python-shell-prompt-regexp "In \\[[0-9]+\\]: "
+ python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
+ python-shell-completion-setup-code
+ "from IPython.core.completerlib import module_completion"
+ python-shell-completion-module-string-code
+ "';'.join(module_completion('''%s'''))\n"
+ python-shell-completion-string-code
+ "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"
  )
 
 (setq python-indent-guess-indent-offset-verbose nil)
@@ -529,7 +529,8 @@
 (setq company-idle-delay 0.5
       company-show-numbers t
       company-minimum-prefix-length 2
-      company-tooltip-flip-when-above t)
+      company-tooltip-flip-when-above t
+      company-global-modes '(not inferior-python-mode))
 
 (global-set-key (kbd "C-M-/") #'company-complete)
 (global-company-mode)
@@ -840,6 +841,8 @@ $ emacsclient -c
   (server-start)
   )
 (define-key special-event-map [sigusr1] 'signal-restart-server)
+
+(icomplete-mode 0)
 
 ;; Hide minor modes in mode-line
 (require 'diminish)
