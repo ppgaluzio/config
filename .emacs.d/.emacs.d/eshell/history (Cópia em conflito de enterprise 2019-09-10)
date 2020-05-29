@@ -1,0 +1,128 @@
+cd ..
+cd ..
+cd Papers/optimization/
+ls
+open Deb_NSGA-II.pdf 
+cd ..
+cd ..
+cd PyModules/
+ls
+cd MOBOpt/
+ls
+cd ..
+ls
+cd HE-Opt/
+ls
+cd ..
+ls
+open run_MO_EX.py
+cd Results/
+ls
+cd NDMO/
+ls
+ls *.py
+ls *.py
+cp zdt1.py schaffer.py
+open schaffer.py 
+cd ..
+cd ..
+cd MOBOpt/
+ls
+open bayes.py
+cd ..
+cd Results/NDMO/
+cp schaffer.py fonseca.py
+open fonseca.py 
+open PrintFront.py 
+cd ..
+cd ..
+cd Documents/PostDoc/Papers/optimization/metrics/
+open 9912-1hiroyasu.pdf
+cd ..
+cd ..
+cd ..
+cd PyModules/
+ls
+cd metrics/
+ls
+ls
+cd ..
+ls
+cd metrics/
+open metrics.py
+cd ..
+cd MOBOpt/
+ls
+open metrics.py
+cd
+cd Dropbox/USA/
+ls
+pwd
+cd Documents/UP/nucleo_comum/2019/Modelagem\ Mat\ II/
+cd Atividade1/
+open atividade.tex
+cd ..
+cd USA/
+ls
+open CV\ Dependent\ Insurance\ Certification.pdf 
+open 2018_TrainUSA_J2\ Application_filled.pdf
+cd ..
+cd UP/LicenciaturaFisica/Disciplinas/Calculo/Listas/
+ls
+mkdir Lista3
+cd Lista3/
+ls
+open lista.tex
+pdflatex lista.tex
+cd 
+cd Documents/eBooks/
+cd Calculo/
+ll
+ls
+evince Diva\ Marília\ Flemming,\ Mirian\ Buss\ Gonçalves-Cálculo\ A_\ Funções,\ Limite,\ Derivação\ e\ Integração\ \ -Prentice\ Hall\ Brasil\ \(2007\).pdf &
+cd ..
+cd
+cd Documents/UP/LicenciaturaFisica/Disciplinas/Calculo/Listas/
+ls
+open Lista3.pdf
+evince ~/Documents/eBooks/Calculo/Diva\ Marília\ Flemming,\ Mirian\ Buss\ Gonçalves-Cálculo\ A_\ Funções,\ Limite,\ Derivação\ e\ Integração\ \ -Prentice\ Hall\ Brasil\ \(2007\).pdf 
+open Lista3.pdf
+cd~/Documents/eBooks $cd
+cd ..
+cd ..
+cd ..
+cd Papers/
+cd ..
+cd Projetos/
+ls
+open Responsabilidade_social2019.pdf
+cdcd~/Documents/eBooks $
+cd ..
+cd ..
+cd ..
+cd PostDoc/PyModules/
+ls
+cd Results/
+ls
+cd NDMO/
+ls *.py
+open fonseca.py 
+open kursawe.py 
+cd
+cd Documents/PostDoc/Papers/optimization/benchmark/
+ls
+ls
+cd ..
+ls
+mv MULTIoBJECTIVE/benchmark/fonseca.pdf  benchmark/.
+cd benchmark/
+open fonseca.pdf 
+cd ..
+cd ..
+cd ..
+cd PyModules/Results/NDMO/
+ls
+ls *.txt
+ls
+ls *.py
+rm KursaweTPF.py

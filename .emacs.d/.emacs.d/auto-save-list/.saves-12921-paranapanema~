@@ -1,0 +1,12 @@
+/home/paulo/HOGGAR/jobs/NLS/FORTRAN/PS/dissipative/integracao/init.nml
+/home/paulo/HOGGAR/jobs/NLS/FORTRAN/PS/dissipative/integracao/#init.nml#
+/home/paulo/HOGGAR/jobs/NLS/FORTRAN/PS/dissipative/integracao/src/inicializa.f90
+/home/paulo/HOGGAR/jobs/NLS/FORTRAN/PS/dissipative/integracao/src/#inicializa.f90#
+/home/paulo/HOGGAR/jobs/NLS/FORTRAN/PS/dissipative/integracao/src/nls-ps.f90
+/home/paulo/HOGGAR/jobs/NLS/FORTRAN/PS/dissipative/integracao/src/#nls-ps.f90#
+/home/paulo/HOGGAR/jobs/NLS/FORTRAN/PS/dissipative/integracao/src/modulos.f90
+/home/paulo/HOGGAR/jobs/NLS/FORTRAN/PS/dissipative/integracao/src/#modulos.f90#
+/home/paulo/HOGGAR/jobs/NLS/FORTRAN/PS/dissipative/integracao/src/integracao.f90
+/home/paulo/HOGGAR/jobs/NLS/FORTRAN/PS/dissipative/integracao/src/#integracao.f90#
+/home/paulo/HOGGAR/jobs/NLS/FORTRAN/PS/dissipative/integracao/src/fex.f90
+/home/paulo/HOGGAR/jobs/NLS/FORTRAN/PS/dissipative/integracao/src/#fex.f90#

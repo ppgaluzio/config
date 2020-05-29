@@ -1,0 +1,17 @@
+;; Emacs-W3 HTTP cookies file
+;; Automatically generated file!!! DO NOT EDIT!!!
+
+(setq url-cookie-storage
+ '((".economist.com"
+  [url-cookie "visid_incap_121505" "EmPv0MALR/uyPVzDk4Vhf6F0jVsAAAAAQUIPAAAAAAC8Gxea4sBhb0RoqPkF10bF" "Tue, 03 Sep 2019 08:50:58 GMT" "/" ".economist.com" nil])
+ (".cartacapital.com.br"
+  [url-cookie "__cfduid" "dc032adad2ac1b46351d5387d2324c2831535997964" "03 Sep 19 18:06:04 [GMT]" "/" ".cartacapital.com.br" nil]
+  [url-cookie "HttpOnly" nil "03 Sep 19 18:06:04 [GMT]" "/" ".cartacapital.com.br" nil]))
+)
+(setq url-cookie-secure-storage
+ 'nil)
+
+;; Local Variables:
+;; version-control: never
+;; no-byte-compile: t
+;; End:

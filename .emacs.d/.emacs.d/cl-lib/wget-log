@@ -1,0 +1,11 @@
+--2015-02-06 07:35:17--  https://raw.githubusercontent.com/emacsmirror/cl-lib/master/cl-lib.el
+Resolvendo raw.githubusercontent.com (raw.githubusercontent.com)... 23.235.46.133
+Conectando-se a raw.githubusercontent.com (raw.githubusercontent.com)|23.235.46.133|:443... conectado.
+A requisição HTTP foi enviada, aguardando resposta... 200 OK
+Tamanho: 12532 (12K) [text/plain]
+Salvando em: “cl-lib.el”
+
+     0K .......... ..                                         100% 39,0M=0s
+
+2015-02-06 07:35:18 (39,0 MB/s) - “cl-lib.el” salvo [12532/12532]
+

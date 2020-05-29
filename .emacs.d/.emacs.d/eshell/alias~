@@ -1,0 +1,4 @@
+alias K > /dev/kill
+alias emacs find-file $1
+alias open find-file $1
+alias ll ls -l $*
