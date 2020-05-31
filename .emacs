@@ -13,17 +13,22 @@
  '(company-quickhelp-color-foreground "#DCDCCC")
  '(custom-safe-themes
    (quote
-    ("6e70d505e0957aaa67562ff0487b7b1b1e10f879655f2c47adf85949790fb687"
-     "2925ed246fb757da0e8784ecf03b9523bccd8b7996464e587b081037e0e98001"
-     default)))
+    ("6e70d505e0957aaa67562ff0487b7b1b1e10f879655f2c47adf85949790fb687" "2925ed246fb757da0e8784ecf03b9523bccd8b7996464e587b081037e0e98001" default)))
  '(display-time-mode t)
+ '(ein:output-area-inlined-images t)
  '(eldoc-idle-delay 1.0)
  '(elpy-autodoc-delay 1.0)
  '(elpy-eldoc-show-current-function nil)
+ '(elpy-modules
+   (quote
+    (elpy-module-company elpy-module-eldoc elpy-module-flymake elpy-module-pyvenv elpy-module-highlight-indentation elpy-module-yasnippet elpy-module-sane-defaults)))
  '(elpy-shell-add-to-shell-history t)
+ '(elpy-shell-starting-directory (quote current-directory))
+ '(elpy-shell-use-project-root nil)
  '(flycheck-python-flake8-executable "python3")
  '(flycheck-python-pycompile-executable "python3")
  '(flycheck-python-pylint-executable "python3")
+ '(icomplete-mode nil)
  '(menu-bar-mode nil)
  '(nrepl-message-colors
    (quote
@@ -35,17 +40,11 @@
  '(org-hide-emphasis-markers t)
  '(package-selected-packages
    (quote
-    (highlight-indent-guides helm org-pdftools auto-virtualenv
-                             imenu-anywhere smartparens diminish python-docstring sphinx-doc
-                             vterm-toggle vterm julia-snail julia-repl jupyter julia-mode
-                             yaml-mode yasnippet-classic-snippets calfw-ical calfw ess
-                             importmagic realgud ein markdown-mode gnu-elpa-keyring-update
-                             magit global-tags company-erlang company-auctex elpygen
-                             exec-path-from-shell yasnippet-snippets org htmlize pdf-tools lv
-                             f90-interface-browser elpy dash company-math)))
+    (ob-ipython highlight-indent-guides helm org-pdftools auto-virtualenv imenu-anywhere smartparens diminish python-docstring sphinx-doc vterm-toggle vterm julia-snail julia-repl julia-mode yaml-mode yasnippet-classic-snippets calfw-ical calfw ess importmagic realgud markdown-mode gnu-elpa-keyring-update magit global-tags company-erlang company-auctex elpygen exec-path-from-shell yasnippet-snippets org htmlize pdf-tools lv f90-interface-browser elpy dash company-math)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
- '(show-paren-mode t) '(size-indication-mode t) '(tool-bar-mode
-                                                  nil))
+ '(show-paren-mode t)
+ '(size-indication-mode t)
+ '(tool-bar-mode nil))
 
 ;; (setq org-startup-indented t)
 ;; (setq org-agenda-todo-list-sublevels t)
@@ -451,6 +450,12 @@
  "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"
  )
 
+;; (setq python-shell-interpreter "jupyter"
+;; python-shell-interpreter-args "console --simple-prompt"
+;; python-shell-prompt-detect-failure-warning nil)
+;; (add-to-list
+;;  'python-shell-completion-native-disabled-interpreters "jupyter")
+
 (setq python-indent-guess-indent-offset-verbose nil)
 
 (progn(require 'comint)
@@ -823,8 +828,6 @@
 
 (global-set-key [remap save-buffer] #'my-save-buffer)
 
-(setq debug-on-error nil)
-(setq debug-on-quit nil)
 
 (defun signal-restart-server ()
   "Handler for SIGUSR1 signal, to (re)start an emacs server.
@@ -843,6 +846,9 @@ $ emacsclient -c
 (define-key special-event-map [sigusr1] 'signal-restart-server)
 
 (icomplete-mode 0)
+
+(setq debug-on-error nil)
+(setq debug-on-quit nil)
 
 ;; Hide minor modes in mode-line
 (require 'diminish)
