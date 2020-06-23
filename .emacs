@@ -988,6 +988,10 @@ $ emacsclient -c
 (dim-major-name 'org-mode "O")
 
 (dim-minor-name 'projectile-mode "p")
+(dim-minor-name 'org-cdlatex-mode "")
+(dim-minor-name 'flyspell-mode "")
+(dim-minor-name 'org-indent-mode "")
+(dim-minor-name 'visual-line-mode "")
 (dim-minor-name 'sphinx-doc-mode "")
 (dim-minor-name 'python-docstring-mode "")
 (dim-minor-name 'flymake-mode "")
