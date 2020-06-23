@@ -13,7 +13,7 @@
  '(company-quickhelp-color-foreground "#DCDCCC")
  '(custom-safe-themes
    (quote
-    ("6e70d505e0957aaa67562ff0487b7b1b1e10f879655f2c47adf85949790fb687" "2925ed246fb757da0e8784ecf03b9523bccd8b7996464e587b081037e0e98001" default)))
+    ("60940e1f2fa3f4e61e7a7ed9bab9c22676aa25f927d5915c8f0fa3a8bf529821" "84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "6e70d505e0957aaa67562ff0487b7b1b1e10f879655f2c47adf85949790fb687" "2925ed246fb757da0e8784ecf03b9523bccd8b7996464e587b081037e0e98001" default)))
  '(display-time-mode t)
  '(ein:output-area-inlined-images t)
  '(eldoc-idle-delay 1.0)
@@ -35,15 +35,85 @@
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(org-agenda-files
    (quote
-    ("~/org/personal.org" "~/org/postdoc.org" "~/org/rri.org")))
+    ("~/org/events.org" "~/org/personal.org" "~/org/postdoc.org" "~/org/rri.org")))
  '(org-export-backends (quote (ascii html icalendar latex md)))
  '(org-hide-emphasis-markers t)
  '(package-selected-packages
    (quote
-    (ob-ipython highlight-indent-guides helm org-pdftools auto-virtualenv imenu-anywhere smartparens diminish python-docstring sphinx-doc vterm-toggle vterm julia-snail julia-repl julia-mode yaml-mode yasnippet-classic-snippets calfw-ical calfw ess importmagic realgud markdown-mode gnu-elpa-keyring-update magit global-tags company-erlang company-auctex elpygen exec-path-from-shell yasnippet-snippets org htmlize pdf-tools lv f90-interface-browser elpy dash company-math)))
+    (smart-mode-line-atom-one-dark-theme smart-mode-line-powerline-theme smart-mode-line delight ace-window anaconda-mode counsel ob-async csv csv-mode symon ob-ipython highlight-indent-guides helm org-pdftools auto-virtualenv imenu-anywhere smartparens diminish python-docstring sphinx-doc vterm-toggle vterm julia-snail julia-repl julia-mode yaml-mode yasnippet-classic-snippets calfw-ical calfw ess importmagic realgud markdown-mode gnu-elpa-keyring-update magit global-tags company-erlang company-auctex elpygen exec-path-from-shell yasnippet-snippets org htmlize pdf-tools lv f90-interface-browser elpy dash company-math)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(show-paren-mode t)
  '(size-indication-mode t)
+ '(sml/mode-width
+   (if
+       (eq
+        (powerline-current-separator)
+        (quote arrow))
+       (quote right)
+     (quote full)))
+ '(sml/pos-id-separator
+   (quote
+    (""
+     (:propertize " " face powerline-active1)
+     (:eval
+      (propertize " "
+                  (quote display)
+                  (funcall
+                   (intern
+                    (format "powerline-%s-%s"
+                            (powerline-current-separator)
+                            (car powerline-default-separator-dir)))
+                   (quote powerline-active1)
+                   (quote powerline-active2))))
+     (:propertize " " face powerline-active2))))
+ '(sml/pos-minor-modes-separator
+   (quote
+    (""
+     (:propertize " " face powerline-active1)
+     (:eval
+      (propertize " "
+                  (quote display)
+                  (funcall
+                   (intern
+                    (format "powerline-%s-%s"
+                            (powerline-current-separator)
+                            (cdr powerline-default-separator-dir)))
+                   (quote powerline-active1)
+                   (quote sml/global))))
+     (:propertize " " face sml/global))))
+ '(sml/pre-id-separator
+   (quote
+    (""
+     (:propertize " " face sml/global)
+     (:eval
+      (propertize " "
+                  (quote display)
+                  (funcall
+                   (intern
+                    (format "powerline-%s-%s"
+                            (powerline-current-separator)
+                            (car powerline-default-separator-dir)))
+                   (quote sml/global)
+                   (quote powerline-active1))))
+     (:propertize " " face powerline-active1))))
+ '(sml/pre-minor-modes-separator
+   (quote
+    (""
+     (:propertize " " face powerline-active2)
+     (:eval
+      (propertize " "
+                  (quote display)
+                  (funcall
+                   (intern
+                    (format "powerline-%s-%s"
+                            (powerline-current-separator)
+                            (cdr powerline-default-separator-dir)))
+                   (quote powerline-active2)
+                   (quote powerline-active1))))
+     (:propertize " " face powerline-active1))))
+ '(sml/pre-modes-separator (propertize " " (quote face) (quote sml/modes)))
+ '(sml/show-frame-identification nil)
+ '(sml/theme (quote powerline))
  '(tool-bar-mode nil))
 
 ;; (setq org-startup-indented t)
@@ -53,15 +123,14 @@
 
 ;; (add-hook 'flycheck-mode-hook #'flycheck-virtualenv-setup)
 
-;; (ido-mode t)
 ;; (menu-bar-mode -1)
 
 ;; Minor adjustments
 (setq coding "utf-8")
-(which-func-mode 1)
+(which-func-mode 0)
 ;; (add-to-list 'default-frame-alist '(height . 36))
 ;; (add-to-list 'default-frame-alist '(width . 80))
-(set-default-font "7x14")
+;; (set-default-font "7x14")
 (setq inhibit-splash-screen t)
 (tool-bar-mode 0)
 
@@ -73,9 +142,10 @@
 
 (setq standard-indent 4)
 
+;; (load-theme 'leuven t)            ;
+(load-theme 'zenburn t)            ;
 
-; theme ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(load-theme 'leuven t)            ;
+
 ;; (set-background-color "#faf9de")
 ;; (add-to-list 'default-frame-alist '(background-color . "#fdf6e3"))
 
@@ -99,26 +169,29 @@
 ;; (setq leuven-scale-org-agenda-structure 10)
 ;; (setq org-fontify-whole-heading-line 10)
 
-;; (set-face-background 'mode-line "#99ccff")
-;; (set-face-foreground 'mode-line-inactive "#000000")
-;; (set-face-background 'mode-line-inactive "#666666")
+(set-face-background 'mode-line "#004060")
+(set-face-foreground 'mode-line-inactive "#000000")
+(set-face-background 'mode-line-inactive "#666666")
 
 (display-time-mode 0)
 (line-number-mode 1)
-(column-number-mode 1)
+(column-number-mode 0)
 (size-indication-mode 0)
+(scroll-bar-mode -1)
 
 ;; (set-face-background 'hl-line "#cce5ff")
 ;; (set-face-foreground 'highlight nil)
 
-(setq scroll-step 1)
-(mouse-wheel-mode t)
+;; (setq scroll-step 1)
+;; (mouse-wheel-mode 1)
 (global-font-lock-mode t)
 (show-paren-mode t)
 (set-cursor-color "#ff3300")
 (add-to-list 'default-frame-alist '(cursor-color . "#ff3300"))
 (delete-selection-mode 1) ; make typing override text selection
 
+
+;; (setq auto-window-vscroll nil)
 ;; (add-to-list 'load-path path-to-julia-repl)
 
 
@@ -135,17 +208,17 @@
 (add-hook 'org-mode-hook 'turn-on-visual-line-mode)
 (setq visual-line-fringe-indicators '(left-curly-arrow right-curly-arrow))
 
-(defun ibuffer-ido-find-file (file &optional wildcards)
-  "Like `ido-find-file', but default to the directory of the buffer at point."
-  (interactive
-   (let ((default-directory
-           (let ((buf (ibuffer-current-buffer)))
-             (if (buffer-live-p buf)
-                 (with-current-buffer buf
-                   default-directory)
-               default-directory))))
-     (list (ido-read-file-name "Find file: " default-directory) t)))
-  (find-file file wildcards))
+;; (defun ibuffer-ido-find-file (file &optional wildcards)
+;;   "Like `ido-find-file', but default to the directory of the buffer at point."
+;;   (interactive
+;;    (let ((default-directory
+;;            (let ((buf (ibuffer-current-buffer)))
+;;              (if (buffer-live-p buf)
+;;                  (with-current-buffer buf
+;;                    default-directory)
+;;                default-directory))))
+;;      (list (ido-read-file-name "Find file: " default-directory) t)))
+;;   (find-file file wildcards))
 
 (require 'ibuffer)
 ;; (define-key ibuffer-mode-map "\C-x\C-f" 'ibuffer-ido-find-file)
@@ -153,8 +226,8 @@
 ;; Auto-hungry for c
 (add-hook 'c-mode-hook
           (lambda ()
-	    (c-toggle-auto-hungry-state 1)
-	    ))
+	        (c-toggle-auto-hungry-state 1)
+	        ))
 
 ;; offset for c
 (setq-default c-basic-offset 4
@@ -169,10 +242,10 @@
 (defun newline-without-break-of-line ()
   "1. remove to end of the line.
    2. insert newline with index"
-	(interactive)
-	(let ((oldpos (point)))
-		(end-of-line)
-		(newline-and-indent)))
+  (interactive)
+  (let ((oldpos (point)))
+	(end-of-line)
+	(newline-and-indent)))
 (global-set-key (kbd "C-j") 'newline-without-break-of-line)
 
 ;; Don't add new lines to the end of a file when using down-arrow key
@@ -199,47 +272,55 @@
 ;; identa o que for copiado
 (dolist (command '(yank yank-pop))
   (eval `(defadvice ,command (after indent-region activate)
-	   (and (not current-prefix-arg)
-		(member major-mode '(emacs-lisp-mode lisp-mode
-						     clojure-mode    scheme-mode
-						     haskell-mode    ruby-mode
-						     rspec-mode     ;; python-mode
-						     c-mode          c++-mode
-						     objc-mode       latex-mode
-						     plain-tex-mode f90-mode
-						     f-mode ))
-		(let ((mark-even-if-inactive transient-mark-mode))
-		  (indent-region (region-beginning) (region-end) nil))))))
+	       (and (not current-prefix-arg)
+		        (member major-mode '(emacs-lisp-mode lisp-mode
+						                             clojure-mode    scheme-mode
+						                             haskell-mode    ruby-mode
+						                             rspec-mode     ;; python-mode
+						                             c-mode          c++-mode
+						                             objc-mode       latex-mode
+						                             plain-tex-mode f90-mode
+						                             f-mode ))
+		        (let ((mark-even-if-inactive transient-mark-mode))
+		          (indent-region (region-beginning) (region-end) nil))))))
 
 ;; Mata a linha e reduz espaços devido a identação
 (defadvice kill-line (before check-position activate)
   (if (and (eolp) (not (bolp)))
       (progn (forward-char 1)
-	     (just-one-space 0)
-	     (backward-char 1))))
+	         (just-one-space 0)
+	         (backward-char 1))))
 
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-
+(defun my-delete-trailing-whitespace (&optional arg)
+  "Like `save-buffer', but does nothing in certain modes."
+  (interactive "p")
+  (unless (derived-mode-p 'image-mode
+                          )
+    (delete-trailing-whitespace arg)))
+;; (add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'before-save-hook 'my-delete-trailing-whitespace)
 
 ;; ORG mode
 ;; The following lines are always needed.  Choose your own keys.
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 (setq org-support-shift-select t)
 (setq org-todo-keywords
-      '((sequence "TODO" "RUNNING" "POSTPONED" "VERIFY" "READ" "|" "DONE" "DELEGATED" "PARTIAL" "DROPPED" )))
+      '((sequence "TODO" "PARTIAL" "RUNNING" "POSTPONED" "VERIFY" "READ" "FIX" "|"
+                  "DONE" "DELEGATED" "DROPPED"
+                  )))
 
 (add-hook 'org-mode-hook 'turn-on-font-lock)
-
-; not needed when global-font-lock-mode is on
+(setq org-clock-idle-time 10)
+                                        ; not needed when global-font-lock-mode is on
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
 
 (add-hook 'python-mode-hook
-					(lambda ()
-						(setq indent-tabs-mode nil)
-						(setq tab-width 4)
-						(setq python-indent 4)))
+		  (lambda ()
+			(setq indent-tabs-mode nil)
+			(setq tab-width 4)
+			(setq python-indent 4)))
 
 ;; python cell #%%
 ;; (require 'python-cell)
@@ -274,7 +355,7 @@
 (require 'f90-namelist-mode)
 (add-to-list 'auto-mode-alist '("\\.nml\\'" . f90-namelist-mode))
 
-; auto-revert mode
+                                        ; auto-revert mode
 (global-auto-revert-mode 1)
 
 ;; Hide stuff
@@ -338,7 +419,14 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "DejaVu Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 98 :width normal)))))
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 110 :width normal))))
+ '(sml/minor-modes ((t (:foreground "#8CD0D3" :weight bold)))))
+
+
+
+(require 'whitespace)
+(setq whitespace-style '(face empty tabs lines-tail trailing))
+(global-whitespace-mode t)
 
 (add-to-list 'load-path
              "~/.emacs.d/plugins/yasnippet")
@@ -372,9 +460,9 @@
 (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 (setq highlight-indent-guides-method 'column)
 (setq highlight-indent-guides-auto-enabled nil)
-(set-face-background 'highlight-indent-guides-odd-face "WhiteSmoke")
-(set-face-background 'highlight-indent-guides-even-face "WhiteSmoke")
-(set-face-foreground 'highlight-indent-guides-character-face "SkyBlue")
+(set-face-background 'highlight-indent-guides-odd-face "grey27")
+(set-face-background 'highlight-indent-guides-even-face "grey27")
+;; (set-face-foreground 'highlight-indent-guides-character-face "SkyBlue")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -410,7 +498,7 @@
                 (call-process "texcount" nil t nil "-brief" this-file)))))
       (string-match "\n$" word-count)
       (message (replace-match "" nil nil word-count))))
-    (define-key LaTeX-mode-map "\C-cw" 'latex-word-count))
+  (define-key LaTeX-mode-map "\C-cw" 'latex-word-count))
 (add-hook 'LaTeX-mode-hook 'my-latex-setup t)
 (put 'downcase-region 'disabled nil)
 
@@ -442,28 +530,44 @@
  python-shell-interpreter-args "--simple-prompt --pprint"
  python-shell-prompt-regexp "In \\[[0-9]+\\]: "
  python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
- python-shell-completion-setup-code
- "from IPython.core.completerlib import module_completion"
- python-shell-completion-module-string-code
- "';'.join(module_completion('''%s'''))\n"
- python-shell-completion-string-code
- "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"
+ ;; python-shell-completion-setup-code
+ ;; "from IPython.core.completerlib import module_completion"
+ ;; python-shell-completion-module-string-code
+ ;; "';'.join(module_completion('''%s'''))\n"
+ ;; python-shell-completion-string-code
+ ;; "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"
  )
 
+;; (setq python-shell-interpreter "python"
+;;       python-shell-interpreter-args ""
+;;        python-shell-prompt-regexp ">>>"
+;;        )
+
 ;; (setq python-shell-interpreter "jupyter"
-;; python-shell-interpreter-args "console --simple-prompt"
-;; python-shell-prompt-detect-failure-warning nil)
+;;       python-shell-interpreter-args "console --simple-prompt"
+;;        python-shell-prompt-regexp "In \\[[0-9]+\\]: "
+;;        python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
+;;        python-shell-completion-setup-code
+;;        "from IPython.core.completerlib import module_completion"
+;;        python-shell-completion-module-string-code
+;;        "';'.join(module_completion('''%s'''))\n"
+;;        python-shell-completion-string-code
+;;        "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"
+;;       python-shell-prompt-detect-failure-warning nil)
 ;; (add-to-list
 ;;  'python-shell-completion-native-disabled-interpreters "jupyter")
+;; (add-to-list
+;;  'python-shell-completion-native-disabled-interpreters "ipython3")
+
 
 (setq python-indent-guess-indent-offset-verbose nil)
 
 (progn(require 'comint)
-;; (define-key comint-mode-map (kbd "<up>") 'comint-previous-input)
-(define-key comint-mode-map (kbd "<down>") 'comint-next-input)
-(define-key comint-mode-map (kbd "C-<right>") 'comint-dynamic-complete-filename)
-(define-key comint-mode-map (kbd "<up>") 'comint-previous-matching-input-from-input)
-)
+      ;; (define-key comint-mode-map (kbd "<up>") 'comint-previous-input)
+      (define-key comint-mode-map (kbd "<down>") 'comint-next-input)
+      (define-key comint-mode-map (kbd "C-<right>") 'comint-dynamic-complete-filename)
+      (define-key comint-mode-map (kbd "<up>") 'comint-previous-matching-input-from-input)
+      )
 
 
 ;; (add-to-list 'auto-mode-alist '("\\.xls\\'" . no-xls))
@@ -683,7 +787,9 @@
 (global-set-key [f1] 'eshell) ; Copy
 (global-set-key [f2] 'ibuffer)
 
-(global-set-key (kbd "<C-tab>") 'other-window)
+;; (global-set-key (kbd "<C-tab>") 'other-window)
+;; (global-set-key (kbd "M-o") 'ace-window)
+(global-set-key (kbd "<C-tab>") 'ace-window)
 (global-set-key (kbd "C-f") 'rgrep)
 (global-set-key (kbd "C-c c") 'recompile)
 
@@ -691,10 +797,17 @@
           '(lambda ()
              (define-key org-mode-map [(control tab)] nil)))
 
+(setq org-image-actual-width 400)
 (add-hook 'magit-mode-hook
           '(lambda ()
              (define-key magit-mode-map [(control tab)] nil)))
 
+(require 'ob-ipython)
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((ipython . t)
+   ;; other languages..
+   ))
 ;; (require 'calfw)
 ;; (require 'calfw-ical)
 
@@ -728,7 +841,7 @@
   :type 'face
   :group 'hideshow)
 (defface hs-face
-  '((t (:background "#ff8" :box t)))
+  '((t (:background "#b8860b" :box t)))
   "Face to hightlight the ... area of hidden regions"
   :group 'hideshow)
 (defun display-code-line-counts (ov)
@@ -753,18 +866,22 @@
   (interactive)
   (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
 
-(defun duplicate-line()
-  (interactive)
-  (move-beginning-of-line 1)
-  (kill-line)
-  (yank)
-  (toggle-comment-on-line)
-  (open-line 1)
-  (next-line 1)
-  (yank)
-  (move-beginning-of-line 1)
-)
-(global-set-key (kbd "C-M-;") 'duplicate-line)
+(global-set-key (kbd "C-d") #'crux-duplicate-current-line-or-region)
+(global-set-key (kbd "C-M-;") #'crux-duplicate-and-comment-current-line-or-region)
+
+(global-set-key [remap move-beginning-of-line] #'crux-move-beginning-of-line)
+(global-set-key (kbd "C-c o") #'crux-open-with)
+(global-set-key [(shift return)] #'crux-smart-open-line)
+(global-set-key [(control shift return)] #'crux-smart-open-line-above)
+(global-set-key (kbd "s-r") #'crux-recentf-find-file)
+(global-set-key (kbd "C-<backspace>") #'crux-kill-line-backwards)
+(global-set-key [remap kill-whole-line] #'crux-kill-whole-line)
+(global-set-key (kbd "C-c r") #'crux-rename-file-and-buffer)
+(global-set-key (kbd "C-c t") #'crux-visit-term-buffer)
+(global-set-key (kbd "C-c k") #'crux-kill-other-buffers)
+
+
+
 
 ;; ;; Line number
 ;; (require 'linum-off)
@@ -787,7 +904,7 @@
 ;;                               (sphinx-doc-mode t)))
 ;; (add-hook 'python-mode-hook 'python-docstring-mode)
 
-
+;; (ido-mode t)
 (ivy-mode 1)
 ;; (helm-mode 1)
 (setq ivy-use-virtual-buffers t)
@@ -845,17 +962,40 @@ $ emacsclient -c
   )
 (define-key special-event-map [sigusr1] 'signal-restart-server)
 
-(icomplete-mode 0)
+(require 'csv-mode)
+
+(ace-window-display-mode)
+(setq aw-display-mode-overlay nil)
+
+;; (icomplete-mode 1)
+;; (symon-mode 1)
+;; (setq scroll-conservatively 101)
+
+;; (auto-insert-mode)  ;;; Adds hook to find-files-hook
+;; (setq auto-insert-directory "~/.mytemplates/")
+;; ;; (setq auto-insert-query nil) ;;; If you don't want to be prompted before insertion
+;; ;; (define-auto-insert "\.py" "my-python-template.py")
+;; ;; (define-auto-insert "\.php" "my-php-template.php")
+;; (define-auto-insert "\.tex" "my-tex-template.tex")
 
 (setq debug-on-error nil)
 (setq debug-on-quit nil)
 
 ;; Hide minor modes in mode-line
-(require 'diminish)
-(diminish 'projectile-mode "p")
-(diminish 'sphinx-doc-mode)
-(diminish 'python-docstring-mode)
-(diminish 'flymake-mode " f")
-(diminish 'indent-guide-mode)
-(diminish 'autopair-mode)
-(diminish 'ivy-mode)
+(require 'dim)
+(dim-major-name 'python-mode "P")
+(dim-major-name 'inferior-python-mode "I")
+(dim-major-name 'org-mode "O")
+
+(dim-minor-name 'projectile-mode "p")
+(dim-minor-name 'sphinx-doc-mode "")
+(dim-minor-name 'python-docstring-mode "")
+(dim-minor-name 'flymake-mode "")
+(dim-minor-name 'indent-guide-mode "")
+(dim-minor-name 'autopair-mode "")
+(dim-minor-name 'ivy-mode "")
+(dim-minor-name 'elpy-mode "e")
+(dim-minor-name 'global-whitespace-mode "")
+(dim-minor-name 'highlight-indent-guides-mode "")
+(dim-minor-name 'hs-minor-mode "")
+(sml/setup)
