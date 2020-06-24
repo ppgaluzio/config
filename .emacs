@@ -14,7 +14,8 @@
  '(custom-safe-themes
    (quote
     ("60940e1f2fa3f4e61e7a7ed9bab9c22676aa25f927d5915c8f0fa3a8bf529821" "84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "6e70d505e0957aaa67562ff0487b7b1b1e10f879655f2c47adf85949790fb687" "2925ed246fb757da0e8784ecf03b9523bccd8b7996464e587b081037e0e98001" default)))
- '(display-time-mode t)
+ '(display-time-day-and-date nil)
+ '(display-time-mode nil)
  '(ein:output-area-inlined-images t)
  '(eldoc-idle-delay 1.0)
  '(elpy-autodoc-delay 1.0)
@@ -44,6 +45,7 @@
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(show-paren-mode t)
  '(size-indication-mode t)
+ '(sml/line-number-format " %3l")
  '(sml/mode-width
    (if
        (eq
@@ -113,6 +115,7 @@
      (:propertize " " face powerline-active1))))
  '(sml/pre-modes-separator (propertize " " (quote face) (quote sml/modes)))
  '(sml/show-frame-identification nil)
+ '(sml/size-indication-format "")
  '(sml/theme (quote powerline))
  '(tool-bar-mode nil))
 
@@ -427,6 +430,14 @@
 (require 'whitespace)
 (setq whitespace-style '(face empty tabs lines-tail trailing))
 (global-whitespace-mode t)
+
+(add-hook 'org-mode-hook 'my-inhibit-global-whitespace-mode)
+(defun my-inhibit-global-whitespace-mode ()
+  "Counter-act `global-whitespace-mode'."
+  (add-hook 'after-change-major-mode-hook
+            (lambda () (whitespace-mode 0))
+            :append :local))
+
 
 (add-to-list 'load-path
              "~/.emacs.d/plugins/yasnippet")
