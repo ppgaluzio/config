@@ -37,6 +37,8 @@
  '(org-agenda-files
    (quote
     ("~/org/events.org" "~/org/personal.org" "~/org/postdoc.org" "~/org/rri.org")))
+ '(org-clock-clocked-in-display (quote frame-title))
+ '(org-clock-idle-time 10)
  '(org-export-backends (quote (ascii html icalendar latex md)))
  '(org-hide-emphasis-markers t)
  '(package-selected-packages
@@ -178,7 +180,7 @@
 
 (display-time-mode 0)
 (line-number-mode 1)
-(column-number-mode 0)
+(column-number-mode 1)
 (size-indication-mode 0)
 (scroll-bar-mode -1)
 
@@ -801,7 +803,7 @@
 ;; (global-set-key (kbd "<C-tab>") 'other-window)
 ;; (global-set-key (kbd "M-o") 'ace-window)
 (global-set-key (kbd "<C-tab>") 'ace-window)
-(global-set-key (kbd "C-f") 'rgrep)
+(global-set-key (kbd "C-c f") 'rgrep)
 (global-set-key (kbd "C-c c") 'recompile)
 
 (add-hook 'org-mode-hook
@@ -1013,4 +1015,4 @@ $ emacsclient -c
 (dim-minor-name 'global-whitespace-mode "")
 (dim-minor-name 'highlight-indent-guides-mode "")
 (dim-minor-name 'hs-minor-mode "")
-(sml/setup)
+;; (sml/setup)
